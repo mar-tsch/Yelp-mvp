@@ -1,0 +1,17 @@
+<h1>Restaurants</h1>
+<h1>My restaurants</h1>
+<ul>
+  <% @restaurants.each do |restaurant| %>
+    <% if restaurant.completed == true %>
+      <li>✅<%= link_to restaurant.title, restaurant_path(restaurant.id)  %>---<%= link_to "Delete? 🧺",
+            restaurant_path(restaurant.id),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %></li>
+    <% else %>
+      <li>⬜<%= link_to restaurant.title, restaurant_path(restaurant.id) %>---<%= link_to "Delete? 🧺",
+            restaurant_path(restaurant.id),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %></li>
+    <% end %>
+  <% end %>
+</ul>

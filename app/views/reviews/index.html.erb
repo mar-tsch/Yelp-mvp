@@ -1,0 +1,17 @@
+<h1>Reviews</h1>
+<h1>My reviews</h1>
+<ul>
+  <% @reviews.each do |review| %>
+    <% if review.completed == true %>
+      <li>✅<%= link_to review.title, restaurant_reviews_path(review.id)  %>---<%= link_to "Delete? 🧺",
+            review_path(review.id),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %></li>
+    <% else %>
+      <li>⬜<%= link_to review.title, restaurant_reviews_path(review.id) %>---<%= link_to "Delete? 🧺",
+            review_path(review.id),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %></li>
+    <% end %>
+  <% end %>
+</ul>
